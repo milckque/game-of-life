@@ -13,5 +13,17 @@ def random_state(width, height):
                 state[x][y] = ALIVE
     return state
 
-
-print(random_state(5, 5))
+def render(state):
+    display = {
+        DEAD: ' ',
+        ALIVE: u"\u2588",
+    }
+    height = len(state)
+    width = len(state[0])
+    lines = []
+    for x in range(width):
+        line = ''
+        for y in range(height):
+            line += display[state[x][y]] * 3
+        lines.append(line)
+    print("\n".join(lines))
